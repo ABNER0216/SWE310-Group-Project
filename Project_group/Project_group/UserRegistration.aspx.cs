@@ -39,7 +39,7 @@ namespace Project_group
                 {
                     if ((extension == ".jpg") || (extension == ".png") || (extension == ".gif") || (extension == ".bmp"))
                     {
-                        SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-M3M70HCP\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+                        SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                         con.Open();
                         string insertQuery = "insert into UserInfo(UserName,Password,FullName,Age,PhoneNo,UserAddress,IsAdmin,Vaccine,VaccineTime,HealthCode,Profile,ClockInStatus) values (@UserName,@Password,@FullName,@Age,@PhoneNo,@UserAddress,@IsAdmin,@Vaccine,@VaccineTime,@HealthCode,@Profile,@ClockInStatus)";
                         string selectQuery = "select count(*) from UserInfo where UserName='" + TextBox1.Text + "'";

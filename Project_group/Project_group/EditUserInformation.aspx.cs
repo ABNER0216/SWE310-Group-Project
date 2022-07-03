@@ -65,7 +65,7 @@ namespace Project_group
                     file.InputStream.Read(imagetype, 0, file.ContentLength);
                     if ((extension == ".jpg") || (extension == ".png") || (extension == ".gif") || (extension == ".bmp"))
                     {
-                        SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-M3M70HCP\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+                        SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                         con.Open();
                         string updateQuery = "update UserInfo set Password='" + TextBox2.Text + "',FullName='" + TextBox3.Text + "',Age='" + TextBox4.Text + "',PhoneNo='" + TextBox5.Text + "',UserAddress='" + TextBox6.Text + "',Vaccine='" + DropDownList1.SelectedValue + "',VaccineTime='" + TextBox8.Text + "',Profile='" + SqlDbType.VarBinary + "' where UserName='" + TextBox1.Text + "'";
                         SqlCommand cmd = new SqlCommand(updateQuery, con);
@@ -75,7 +75,7 @@ namespace Project_group
                 }
                 else
                 {
-                    SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-M3M70HCP\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+                    SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                     con.Open();
                     string updateQuery = "update UserInfo set Password='" + TextBox2.Text + "',FullName='" + TextBox3.Text + "',Age='" + TextBox4.Text + "',PhoneNo='" + TextBox5.Text + "',UserAddress='" + TextBox6.Text + "',Vaccine='" + DropDownList1.SelectedValue + "',VaccineTime='" + TextBox8.Text + "' where UserName='" + TextBox1.Text + "'";
                     SqlCommand cmd = new SqlCommand(updateQuery, con);

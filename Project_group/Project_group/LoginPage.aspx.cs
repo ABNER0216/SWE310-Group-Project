@@ -19,7 +19,7 @@ namespace Project_group
         {
             String UserName = TextBox1.Text;
             String Password = TextBox2.Text;
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-M3M70HCP\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
             con.Open();
 
             SqlCommand sqlComGet = new SqlCommand();
