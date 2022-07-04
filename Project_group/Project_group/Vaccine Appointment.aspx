@@ -39,12 +39,12 @@
                 </asp:SqlDataSource>
             </center>
             <center>
-                <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="VacInventory" OnPageIndexChanging="DetailsView1_PageIndexChanging">
+                <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="VacInventory" OnPageIndexChanging="DetailsView1_PageIndexChanging" DataKeyNames="VID">
                     <Fields>
                         <asp:BoundField DataField="Inventory" HeaderText="Inventory" SortExpression="Inventory" />
                     </Fields>
                 </asp:DetailsView>
-                <asp:SqlDataSource ID="VacInventory" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [Inventory] FROM [VaccineInfo] WHERE (([VPlace] = @VPlace) AND ([VDate] = @VDate) AND ([VTime] = @VTime))">
+                <asp:SqlDataSource ID="VacInventory" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [VID], [Inventory] FROM [VaccineInfo] WHERE (([VPlace] = @VPlace) AND ([VDate] = @VDate) AND ([VTime] = @VTime))">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="ddl_place" Name="VPlace" PropertyName="SelectedValue" Type="String" />
                         <asp:ControlParameter ControlID="ddl_date" Name="VDate" PropertyName="SelectedValue" Type="String" />

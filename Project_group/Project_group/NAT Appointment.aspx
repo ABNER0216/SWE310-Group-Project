@@ -10,8 +10,8 @@
     </center>
     <center>
         <asp:Label ID="Label2" runat="server" Text="Appointment Place "></asp:Label>
-        <asp:DropDownList ID="dll_NATPlace" runat="server" AutoPostBack="true" DataSourceID="NATPlace" DataTextField="NATAddress" DataValueField="NATAddress" OnSelectedIndexChanged="dll_NATPlace_SelectedIndexChanged"></asp:DropDownList>
-        <asp:SqlDataSource ID="NATPlace" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [NATAddress] FROM [NATInfo]"></asp:SqlDataSource>
+        <asp:DropDownList ID="dll_NATPlace" runat="server" AutoPostBack="True" DataSourceID="NAT_place" DataTextField="NATAddress" DataValueField="NATAddress" OnSelectedIndexChanged="dll_NATPlace_SelectedIndexChanged"></asp:DropDownList>
+        <asp:SqlDataSource ID="NAT_place" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT DISTINCT [NATAddress] FROM [NATTime]"></asp:SqlDataSource>
         
     </center>
     <center>

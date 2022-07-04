@@ -51,13 +51,13 @@ namespace Project_group
         protected global::System.Web.UI.WebControls.DropDownList dll_NATPlace;
 
         /// <summary>
-        /// NATPlace control.
+        /// NAT_place control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource NATPlace;
+        protected global::System.Web.UI.WebControls.SqlDataSource NAT_place;
 
         /// <summary>
         /// Label3 control.
