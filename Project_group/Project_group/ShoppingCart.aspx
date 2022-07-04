@@ -14,7 +14,7 @@
                 <asp:Parameter Name="UserName" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:GridView ID="CartGrid" runat="server" AutoGenerateColumns="False" EmptyDataText="The shopping cart is empty." HorizontalAlign="Center" Width="400px" DataKeyNames="Username,ItemId" DataSourceID="ShopCart" OnRowDataBound="calculateprice" OnSelectedIndexChanged="CartGrid_SelectedIndexChanged">
+        <asp:GridView ID="CartGrid" runat="server" AutoGenerateColumns="False" EmptyDataText="The shopping cart is empty." HorizontalAlign="Center" Width="400px" DataKeyNames="UserName,ItemId" DataSourceID="ShopCart" OnRowDataBound="calculateprice" OnSelectedIndexChanged="CartGrid_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="ItemName" HeaderText="Item" SortExpression="ItemName">
                 <ItemStyle HorizontalAlign="Center" Width="40px" />
