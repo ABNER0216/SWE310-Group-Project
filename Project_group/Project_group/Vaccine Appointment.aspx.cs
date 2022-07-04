@@ -13,9 +13,12 @@ namespace Project_group
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-F1P5I179\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
-            Session["Userid"] = "1";
-
+            SqlConnection con = new SqlConnection(@"Data Source=Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
+            if (Session["UserName"] == null)
+            {
+                //Response.Write("<script>window.alert('Please login！');</script>");
+                Response.Redirect("LoginPage.aspx");
+            }
 
         }
 
@@ -49,7 +52,7 @@ namespace Project_group
                 {
                     try
                     {
-                        SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-F1P5I179\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+                        SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                         con.Open();
                         inventory -= 1;
                         string insertQuery = "insert into VacAppointment(AppointmentDate,AppointmentTime,AppointmentPlace,ActionTime,UserName,UserID,VacInfoID)values(@AppointmentDate,@AppointmentTime,@AppointmentPlace,@ActionTime,@UserName,@UserID,@VacInfoID)";

@@ -7,7 +7,7 @@ namespace Project_group
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-F1P5I179\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
             Session["Userid"] = "1";
         }
 
@@ -35,7 +35,7 @@ namespace Project_group
             try
             {
                 //creating sqlConnection object
-                SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-F1P5I179\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+                SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                 con.Open();
                 string insertQuery = "insert into NATAppointment(NATPlace,ANATTime,ANATDate,ActionTime,UserName,UserID)values(@NATPlace,@ANATTime,@ANATDate,@ActionTime,@UserName,@UserID)";
                 SqlCommand cmd = new SqlCommand(insertQuery, con);
