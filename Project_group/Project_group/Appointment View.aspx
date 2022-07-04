@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         <asp:GridView ID="VAC_GridView" runat="server" DataSourceID="Vac_info" Width="100%" AutoGenerateColumns="False" DataKeyNames="VacAID" onrowcommand="VaccineGridView_RowCommand">
             <Columns>
                 <asp:BoundField DataField="VacAID" HeaderText="VacAID" InsertVisible="False" ReadOnly="True" SortExpression="VacAID" />
@@ -19,7 +19,7 @@
                 <asp:SessionParameter Name="UserID" SessionField="Userid" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
         <asp:GridView ID="NAT_GridView" runat="server" AutoGenerateColumns="False" DataKeyNames="NATAID" DataSourceID="NAT_info" Width="100%" onrowcommand="NATGridView_RowCommand">
             <Columns>
                 <asp:BoundField DataField="NATAID" HeaderText="NATAID" InsertVisible="False" ReadOnly="True" SortExpression="NATAID" />

@@ -88,6 +88,7 @@ namespace Project_group
                     cmd3.ExecuteNonQuery();
      
                     con.Close();
+                    Response.Write("<script language=javascript>alert('successful appointment.');</" + "script>");
                     Response.Redirect(Request.RawUrl);
                 }
                 catch (Exception ex)
@@ -99,9 +100,9 @@ namespace Project_group
             }
             else
             {
-                Response.Write("Failed");
+                    Response.Write("<script language=javascript>alert('failed appointment.');</" + "script>");
             }
-            }
+        }
 
 
         }

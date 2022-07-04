@@ -21,7 +21,7 @@ namespace Project_group
             }
 
             int j = NAT_GridView.Rows.Count;
-            if (i == 0)
+            if (j == 0)
             {
                 Label2.Text = ("you don't have any NAT appointment");
             }
@@ -55,6 +55,7 @@ namespace Project_group
                 cmd.ExecuteNonQuery();
 
                 con.Close();
+                Response.Write("<script language=javascript>alert('Delete the NAT Appointment successfully.');</" + "script>");
                 Response.Redirect(Request.RawUrl);
             }
             catch (Exception ex)
@@ -120,6 +121,7 @@ namespace Project_group
                 cmd.ExecuteNonQuery();
 
                 con.Close();
+                Response.Write("<script language=javascript>alert('Delete the Vaccine Appointment successfully.');</" + "script>");
                 Response.Redirect(Request.RawUrl);
             }
             catch (Exception ex)
