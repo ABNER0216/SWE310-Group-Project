@@ -50,6 +50,24 @@
             </div>
           </div>
         </div>
+        <div style="height:30px;"></div>
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 area_1 rounded-3 ">
+              <h3>Nucleic acid Test appointment<br />& Vaccination Booking</h3>
+              <p>You could use this channel to do the nucleic acid test appointment.</p>
+              <button class="btn btn-outline-light" type="button">Make Appointment</button>
+            </div>
+          </div>
+        
+          <div class="col-md-6">
+            <div class="h-100 p-5 area_2 rounded-3">
+              <h2>Daily Health Report</h2>
+              <p>Report your health situation everyday to help the community management and safety precautions</p>
+              <button class="btn btn-outline-light" type="button">Do the Report</button>
+            </div>
+          </div>
+        </div>
         <div class="card_area">
             <div class="card card_custom" style="width: 18rem;">
               <img src="imgs/figure1.jpg" class="card-img-top" alt="...">
