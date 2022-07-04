@@ -34,4 +34,7 @@
         </asp:GridView>
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [IsContact], [ClockInID], [ClockInTime], [CIUserName], [CIUserPhone], [CAddress], [Temperature], [Cough], [Cold], [Fever] FROM [ClockIN]"></asp:SqlDataSource>
     </div>
+    <div class="btn btn-lg btn-secondary fw-bold border-white bg-white" style="width:400px; color:#696d7d">
+        <a href="StartPage.aspx" style="color:#696d7d"><< Back to Home</a><br>
+    </div>
 </asp:Content>

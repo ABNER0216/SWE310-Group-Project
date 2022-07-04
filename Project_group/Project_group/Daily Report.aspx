@@ -152,7 +152,9 @@ background-attachment: fixed;
                     </center>
                </div>
             </div>
-            <a href="StartPage.aspx"><< Back to Home</a><br>
+             <div class="btn btn-lg btn-secondary fw-bold border-white bg-white" style="width:400px; color:#696d7d">
+                      <a href="StartPage.aspx" style="color:#696d7d"><< Back to Home</a><br>
+                  </div>
             <br>
          </div>
          
