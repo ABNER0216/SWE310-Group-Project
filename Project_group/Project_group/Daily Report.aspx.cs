@@ -13,11 +13,11 @@ namespace Project_group
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        int id = 1;
-
+        
         String cs = ConfigurationManager.ConnectionStrings["communityConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            int id = int.Parse(Session["Userid"].ToString());
             time.Text = DateTime.Now.ToString();
             string sql = "select * from UserInfo where UserID='" + id + "'";
             using (SqlConnection con = new SqlConnection(cs))
@@ -62,7 +62,7 @@ namespace Project_group
                 }
                 else
                 {
-                    SqlConnection con = new SqlConnection(@"Data Source = Data Source=雷义焘\SQLEXPRESS01; Initial Catalog = community; Integrated Security = True");
+                    SqlConnection con = new SqlConnection(@"Data Source = 雷义焘\SQLEXPRESS01; Initial Catalog = community; Integrated Security = True");
                     con.Open();
                     string insertQuery = "insert into ClockIN(ClockInTime,CIUserName,CIUserPhone,CAddress,Temperature,IsContact,Cough, Cold,Fever)values(@ClockInTime,@CIUserName,@CIUserPhone,@CAddress,@Temperature,@IsContact,@Cough,@Cold,@Fever)";
                     SqlCommand cmd = new SqlCommand(insertQuery, con);
