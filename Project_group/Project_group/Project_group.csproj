@@ -76,9 +76,9 @@
     <Content Include="CheckOut.aspx" />
     <Content Include="css\content.css" />
     <Content Include="css\StyleSheet1.css" />
+    <Content Include="DailyReportManage.aspx" />
     <Content Include="datatables\css\jquery.dataTables.min.css" />
     <Content Include="datatables\js\jquery.dataTables.min.js" />
-    <Content Include="EditUser.aspx" />
     <Content Include="EditUserInformation.aspx" />
     <Content Include="fontawesome\css\all.css" />
     <Content Include="fontawesome\css\all.min.css" />
@@ -2132,8 +2132,11 @@
     <Content Include="ItemList.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="ManageItem.aspx" />
+    <Content Include="NAT Appointment.aspx" />
     <Content Include="ShoppingCart.aspx" />
+    <Content Include="StartPage.aspx" />
     <Content Include="UserRegistration.aspx" />
+    <Content Include="Vaccine Appointment.aspx" />
     <Content Include="ViewInformation.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
@@ -2161,14 +2164,14 @@
     <Compile Include="CheckOut.aspx.designer.cs">
       <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DBHelper.cs" />
-    <Compile Include="EditUser.aspx.cs">
-      <DependentUpon>EditUser.aspx</DependentUpon>
+    <Compile Include="DailyReportManage.aspx.cs">
+      <DependentUpon>DailyReportManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EditUser.aspx.designer.cs">
-      <DependentUpon>EditUser.aspx</DependentUpon>
+    <Compile Include="DailyReportManage.aspx.designer.cs">
+      <DependentUpon>DailyReportManage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DBHelper.cs" />
     <Compile Include="EditUserInformation.aspx.cs">
       <DependentUpon>EditUserInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2204,6 +2207,13 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="NAT Appointment.aspx.cs">
+      <DependentUpon>NAT Appointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NAT Appointment.aspx.designer.cs">
+      <DependentUpon>NAT Appointment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
@@ -2212,12 +2222,26 @@
     <Compile Include="ShoppingCart.aspx.designer.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StartPage.aspx.cs">
+      <DependentUpon>StartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartPage.aspx.designer.cs">
+      <DependentUpon>StartPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserRegistration.aspx.cs">
       <DependentUpon>UserRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserRegistration.aspx.designer.cs">
       <DependentUpon>UserRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vaccine Appointment.aspx.cs">
+      <DependentUpon>Vaccine Appointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vaccine Appointment.aspx.designer.cs">
+      <DependentUpon>Vaccine Appointment.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewInformation.aspx.cs">
       <DependentUpon>ViewInformation.aspx</DependentUpon>

@@ -52,27 +52,6 @@ namespace Project_group
                 {
                     TextBox2.Text = TextBox7.Text;
                 }
-                if (FileUpload1.HasFile)
-                {
-                    //Create an object to access the uploaded file and get the uploaded file
-                    HttpPostedFile file = FileUpload1.PostedFile;
-                    //Get the file name and extension of the uploaded file
-                    string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-                    string extension = Path.GetExtension(filename);
-                    //Instantiate a byte array whose length is equal to the length of the uploaded file
-                    byte[] imagetype = new byte[file.ContentLength];
-                    //Read file data into byte array
-                    file.InputStream.Read(imagetype, 0, file.ContentLength);
-                    if ((extension == ".jpg") || (extension == ".png") || (extension == ".gif") || (extension == ".bmp"))
-                    {
-                        SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
-                        con.Open();
-                        string updateQuery = "update UserInfo set Password='" + TextBox2.Text + "',FullName='" + TextBox3.Text + "',Age='" + TextBox4.Text + "',PhoneNo='" + TextBox5.Text + "',UserAddress='" + TextBox6.Text + "',Vaccine='" + DropDownList1.SelectedValue + "',VaccineTime='" + TextBox8.Text + "',Profile='" + SqlDbType.VarBinary + "' where UserName='" + TextBox1.Text + "'";
-                        SqlCommand cmd = new SqlCommand(updateQuery, con);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
-                }
                 else
                 {
                     SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");

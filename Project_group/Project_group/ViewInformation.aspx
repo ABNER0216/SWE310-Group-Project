@@ -61,14 +61,7 @@
         </Columns>
         <HeaderStyle Font-Size="X-Large" HorizontalAlign="Center" />
     </asp:GridView>
-    <br />
-    <asp:GridView ID="GridView10" runat="server" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="SqlDataSource1" GridLines ="None">
-        <Columns>
-               <asp:BoundField DataField="HealthCode" HeaderText="Health Code Color" SortExpression="HealthCode" ItemStyle-HorizontalAlign="Center"/>
-        </Columns>
-        <HeaderStyle Font-Size="X-Large" HorizontalAlign="Center" />
-    </asp:GridView>
-    <br />          
+    <br />  
     <asp:GridView ID="GridView11" runat="server" AutoGenerateColumns="False" DataKeyNames="UserName" DataSourceID="SqlDataSource1" GridLines ="None">
         <Columns>
                 <asp:CheckBoxField DataField="ClockInStatus" HeaderText="Clock In Status" SortExpression="ClockInStatus" ItemStyle-HorizontalAlign="Center"/>

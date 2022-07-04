@@ -62,7 +62,7 @@ namespace Project_group
                 }
                 else
                 {
-                    SqlConnection con = new SqlConnection(@"Data Source = LAPTOP-F1P5I179\SQLEXPRESS; Initial Catalog = community; Integrated Security = True");
+                    SqlConnection con = new SqlConnection(@"Data Source = Data Source=雷义焘\SQLEXPRESS01; Initial Catalog = community; Integrated Security = True");
                     con.Open();
                     string insertQuery = "insert into ClockIN(ClockInTime,CIUserName,CIUserPhone,CAddress,Temperature,IsContact,Cough, Cold,Fever)values(@ClockInTime,@CIUserName,@CIUserPhone,@CAddress,@Temperature,@IsContact,@Cough,@Cold,@Fever)";
                     SqlCommand cmd = new SqlCommand(insertQuery, con);

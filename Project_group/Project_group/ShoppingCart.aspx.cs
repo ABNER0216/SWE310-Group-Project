@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-//购物车
 namespace Project_group
 {
     public partial class ShoppingCart : System.Web.UI.Page
@@ -15,7 +14,7 @@ namespace Project_group
         {
             if (Session["UserName"] == null)
             {
-                Response.Write("<script>window.alert('Please login！');</script>"); //不知道为什么没用，XYH帮忙看下，结算页面也是
+                //Response.Write("<script>window.alert('Please login！');</script>");
                 Response.Redirect("LoginPage.aspx");
             }
             if (!IsPostBack)

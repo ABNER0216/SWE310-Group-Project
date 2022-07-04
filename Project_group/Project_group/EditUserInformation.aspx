@@ -122,15 +122,7 @@
                         </div>
                     </div>
                     </div>
-                    <br />
 
-                      
-                       <div class="row">
-                            <div class="col-md-6" ><label class="fr">Profile</label></div>
-                            <div class="col-md-4">
-                                    <asp:FileUpload ID="FileUpload1" runat="server"/><br />
-                             </div>
-                       </div>
              </div>
           </div>
           <div class="col">

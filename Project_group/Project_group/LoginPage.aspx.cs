@@ -29,7 +29,7 @@ namespace Project_group
             if (sqlDr.Read())
             {
                 Session["UserName"] = UserName;
-
+                Session["Userid"] = Convert.ToString(sqlDr["UserID"]);
                 Session["Password"] = Password;
 
                 Response.Redirect("ViewInformation.aspx");
@@ -50,3 +50,4 @@ namespace Project_group
 
     }
 }
+
