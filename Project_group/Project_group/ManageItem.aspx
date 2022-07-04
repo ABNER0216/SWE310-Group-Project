@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [ItemList]" UpdateCommand="update [ItemList] set [ItemName]=@ItemName, [Inventory]=@Inventory, [Price]=@Price, [Image]=@Image, [Description]=@Description where [ItemID]=@ItemID">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" OnSelecting="SqlDataSource1_Selecting" SelectCommand="SELECT * FROM [ItemList]" UpdateCommand="update [ItemList] set [ItemName]=@ItemName, [Inventory]=@Inventory, [Price]=@Price, [Image]=@FileUpload1, [Description]=@Description where [ItemID]=@ItemID">
         <UpdateParameters>
             <asp:Parameter Name="ItemName" />
             <asp:Parameter Name="Inventory" />
@@ -20,15 +20,8 @@
             <asp:BoundField DataField="ItemName" HeaderText="ItemName" SortExpression="ItemName" />
             <asp:BoundField DataField="Inventory" HeaderText="Inventory" SortExpression="Inventory" />
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
-            <asp:TemplateField HeaderText="Image" SortExpression="Image">
-                <EditItemTemplate>
-                    <asp:FileUpload ID="FileUpload1" runat="server"></asp:FileUpload>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:image ID="Label1" runat="server" ImageUrl='<%# Bind("Image") %>'></asp:image>
-                </ItemTemplate>
-            </asp:TemplateField>
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+            <asp:BoundField DataField="Image" HeaderText="Image" SortExpression="Image" />
             <asp:CommandField ButtonType="Button" HeaderText="Edit" ShowEditButton="True" />
         </Columns>
     </asp:GridView>
