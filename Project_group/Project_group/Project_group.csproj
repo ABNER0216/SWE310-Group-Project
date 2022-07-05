@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NAT_Admin.aspx" />
+    <Content Include="VAT_info.aspx" />
+    <Content Include="Appointment View Admin.aspx" />
     <Content Include="Appointment View.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
@@ -2130,6 +2133,27 @@
     <Content Include="Daily Report.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NAT_Admin.aspx.cs">
+      <DependentUpon>NAT_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NAT_Admin.aspx.designer.cs">
+      <DependentUpon>NAT_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VAT_info.aspx.cs">
+      <DependentUpon>VAT_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VAT_info.aspx.designer.cs">
+      <DependentUpon>VAT_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Appointment View Admin.aspx.cs">
+      <DependentUpon>Appointment View Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Appointment View Admin.aspx.designer.cs">
+      <DependentUpon>Appointment View Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Appointment View.aspx.cs">
       <DependentUpon>Appointment View.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

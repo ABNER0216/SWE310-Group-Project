@@ -11,7 +11,7 @@
                 <asp:BoundField DataField="AppointmentTime" HeaderText="AppointmentTime" SortExpression="AppointmentTime" />
                 <asp:BoundField DataField="AppointmentPlace" HeaderText="AppointmentPlace" SortExpression="AppointmentPlace" />
                 <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" />
-                <asp:ButtonField buttontype="Button" commandname="Cancel" headertext="Action" text="Cancel" />
+                <asp:ButtonField buttontype="Button" commandname="Cancel" headertext="Action" text="Cancel"/>
             </Columns>
         </asp:GridView>       
         <asp:SqlDataSource ID="Vac_info" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [VacAID], [AppointmentDate], [AppointmentTime], [AppointmentPlace], [UserName] FROM [VacAppointment] WHERE ([UserID] = @UserID)">
