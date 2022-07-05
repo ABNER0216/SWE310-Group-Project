@@ -27,7 +27,7 @@ namespace Project_group
                     //DBHelper.GetExecute(deleteinventory);
                     if (numUpdate <= 0)
                     {
-                        string sqlInsert = string.Format("insert into ShoppingCart values (1,'{0}','{1}','{2}','{3}','{4}')", Request.QueryString["ItemId"], Session["UserName"], Request.QueryString["Price"], Request.QueryString["ItemName"], Request.QueryString["Inventory"]);
+                        string sqlInsert = string.Format("insert into ShoppingCart values (1,'{0}','{1}','{2}','{3}','{4}','{5}')", Request.QueryString["ItemId"], Session["UserName"], Request.QueryString["Price"], Request.QueryString["ItemName"], Request.QueryString["Inventory"], Request.QueryString["Inventory"]);
                         DBHelper.GetExecute(sqlInsert);
                     }
                 }
