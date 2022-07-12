@@ -1,22 +1,4 @@
-<style>
-       .card_area{
-           justify-content:center;
-           display:flex;
-           padding:20px;
-       }
-       .card_custom{
-           margin:10px;
-       }
-       .area_1{
-           background-color:#8FC0A9;
-       }
-       .area_2{
-           background-color:#C8D5B9;
-       }
-       .white_area_container{
-           background-color:#EFF0ED;
-       }
-</style>
+
 <h1 align="center">SWE310 Group Project</h1>
 <h2>Content</h2>
 This is the group project for course SWE310 Programming Elective II(2). The Epidemic Situation Smart Community Management System is a system integrating daily health report submitition, vaccine, nucleic acid appointment and shopping. It aims to help community workers better manage community residents under the epidemic situation, and also help users more conveniently make health declaration, vaccine, nucleic acid appointment, and purchase anti epidemic supplies.
