@@ -31,16 +31,15 @@ namespace Project_group
                 Session["UserName"] = UserName;
                 Session["Userid"] = Convert.ToString(sqlDr["UserID"]);
                 Session["Password"] = Password;
-
-                Response.Redirect("ViewInformation.aspx");
+                if(UserName == "Admin")
+                {
+                    Response.Redirect("AdminPage.aspx");
+                }
+                Response.Redirect("StartPage.aspx");
             }
             else
             {
-
-
                 Response.Write("<script>window.alert('Your code and password error！');</script>");
-
-
             }
 
 

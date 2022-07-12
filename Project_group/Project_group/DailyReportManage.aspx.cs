@@ -12,7 +12,7 @@ namespace Project_group
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        String cs = ConfigurationManager.ConnectionStrings["communityConnectionString"].ConnectionString;
+        String cs = ConfigurationManager.ConnectionStrings["communityConnectionString2"].ConnectionString;
 
         
         protected void Unnamed1_RowDeleting(object sender, GridViewDeleteEventArgs e)

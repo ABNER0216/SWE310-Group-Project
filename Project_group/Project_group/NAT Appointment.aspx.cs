@@ -5,10 +5,33 @@ namespace Project_group
 {
     public partial class NAT_Appointment : System.Web.UI.Page
     {
+        int userid;
         protected void Page_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
-            Session["Userid"] = "1";
+            if (Session["UserName"] == null)
+            {
+                //Response.Write("<script>window.alert('Please login！');</script>");
+                Response.Redirect("LoginPage.aspx");
+            }
+            else
+            {
+                con.Open();
+                string selectQuery = "select UserID from UserInfo where UserName=@UserName";
+                SqlCommand cmd1 = new SqlCommand(selectQuery, con);
+                cmd1.Parameters.AddWithValue("@UserName", Session["UserName"]);
+
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string userids = (reader["UserID"].ToString());
+                    userid = int.Parse(userids);
+                }
+                reader.Close();
+                con.Close();
+
+            }
         }
 
         protected void dll_NATPlace_SelectedIndexChanged(object sender, EventArgs e)

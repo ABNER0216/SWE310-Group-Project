@@ -10,16 +10,33 @@ namespace Project_group
 {
     public partial class Vaccine_Appointment : System.Web.UI.Page
     {
-
+        int userid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-M3M70HCP\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
             if (Session["UserName"] == null)
             {
                 //Response.Write("<script>window.alert('Please login！');</script>");
                 Response.Redirect("LoginPage.aspx");
             }
+            else
+            {
+                con.Open();
+                string selectQuery = "select UserID from UserInfo where UserName=@UserName";
+                SqlCommand cmd1 = new SqlCommand(selectQuery, con);
+                cmd1.Parameters.AddWithValue("@UserName", Session["UserName"]);
 
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    string userids = (reader["UserID"].ToString());
+                    userid = int.Parse(userids);
+                }
+                reader.Close();
+                con.Close();
+
+            }
         }
 
         protected void ddl_place_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,7 +69,7 @@ namespace Project_group
                 {
                     try
                     {
-                        SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
+                        SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-M3M70HCP\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
                         con.Open();
                         inventory -= 1;
                         string insertQuery = "insert into VacAppointment(AppointmentDate,AppointmentTime,AppointmentPlace,ActionTime,UserName,UserID,VacInfoID)values(@AppointmentDate,@AppointmentTime,@AppointmentPlace,@ActionTime,@UserName,@UserID,@VacInfoID)";

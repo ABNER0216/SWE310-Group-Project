@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="DailyReportManage.aspx.cs" Inherits="Project_group.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="DailyReportManage.aspx.cs" Inherits="Project_group.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -11,7 +11,6 @@
     <div class="container">
         <asp:GridView runat="server" id="GridView1" CssClass="table table-bordered table-striped table-hover table-responsive" 
         AutoGenerateColumns="False" ForeColor="#4A4D59" OnRowDeleting="Unnamed1_RowDeleting" DataKeyNames="ClockInID" AllowSorting="True" DataSourceID="SqlDataSource1">
-    
             <Columns>  
                 <asp:BoundField DataField="ClockInID" HeaderText="Report ID" InsertVisible="False" ReadOnly="True" SortExpression="ClockInID" />
                 <asp:BoundField DataField="ClockInTime" HeaderText="Report Time" SortExpression="ClockInTime" />
@@ -23,18 +22,17 @@
                 <asp:BoundField DataField="Cough" HeaderText="Cough" SortExpression="Cough" />
                 <asp:BoundField DataField="Cold" HeaderText="Cold" SortExpression="Cold" />
                 <asp:BoundField DataField="Fever" HeaderText="Fever" SortExpression="Fever" />
-                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" >
+                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" HeaderText="Operation" DeleteText="Delete">
                 <ControlStyle BorderStyle="None" CssClass="btn btn-danger" />
                 <ItemStyle Wrap="False" />
                 </asp:CommandField>
               </Columns>
-            
             <HeaderStyle HorizontalAlign="Center" CssClass="table"/>
-    
         </asp:GridView>
-         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [IsContact], [ClockInID], [ClockInTime], [CIUserName], [CIUserPhone], [CAddress], [Temperature], [Cough], [Cold], [Fever] FROM [ClockIN]"></asp:SqlDataSource>
+         <asp:SqlDataSource ID="SqlDataSource1" 
+             runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString2 %>" SelectCommand="SELECT [IsContact], [ClockInID], [ClockInTime], [CIUserName], [CIUserPhone], [CAddress], [Temperature], [Cough], [Cold], [Fever] FROM [ClockIN]"></asp:SqlDataSource>
     </div>
     <div class="btn btn-lg btn-secondary fw-bold border-white bg-white" style="width:400px; color:#696d7d">
-        <a href="StartPage.aspx" style="color:#696d7d"><< Back to Home</a><br>
+        <a href="AdminPage.aspx" style="color:#696d7d"><< Back to Home</a><br>
     </div>
 </asp:Content>

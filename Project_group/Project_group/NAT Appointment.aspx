@@ -34,7 +34,7 @@ background-attachment: fixed;
                   <div class="row">
                      <div class="col">
                         <center>
-                           <img src="imgs/report.png" />
+                           <img src="imgs/NAT.png" />
                             <h4>NAT Appointment</h4>
                         </center>
                      </div>
@@ -59,8 +59,8 @@ background-attachment: fixed;
                           <div class="col-md-5 " ><label class="fr">Appointment Place:</label></div>
                           <div class="col-md-4">
                             <div class="input-group">
-                               <asp:DropDownList ID="dll_NATPlace" runat="server" AutoPostBack="True" DataSourceID="NAT_place" DataTextField="NATAddress" DataValueField="NATAddress" OnSelectedIndexChanged="dll_NATPlace_SelectedIndexChanged"></asp:DropDownList>
-                                <asp:SqlDataSource ID="NAT_place" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT DISTINCT [NATAddress] FROM [NATTime]"></asp:SqlDataSource>
+                               <asp:DropDownList ID="dll_NATPlace" runat="server" AutoPostBack="True" DataSourceID="NAT_place" DataTextField="NATAddress" DataValueField="NATAddress" OnSelectedIndexChanged="dll_NATPlace_SelectedIndexChanged" Width="150px"></asp:DropDownList>
+                                <asp:SqlDataSource ID="NAT_place" runat="server" ConnectionString="Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True" SelectCommand="SELECT DISTINCT [NATAddress] FROM [NATTime]"></asp:SqlDataSource>
                             </div>
                           </div>
                      </div>
@@ -71,8 +71,8 @@ background-attachment: fixed;
                         <div class="col-md-5 " ><label class="fr">Appointment Date:</label></div>
                          <div class="col-md-4">
                             <div class="form-group">
-                               <asp:DropDownList  ID="ddl_NATDate" runat="server" AutoPostBack="True" DataSourceID="NATDATE" DataTextField="NATDate" DataValueField="NATDate" DataFormatString="{0: yyyy/MM/dd}" OnSelectedIndexChanged="ddl_NATDate_SelectedIndexChanged"></asp:DropDownList>
-                                <asp:SqlDataSource ID="NATDATE" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT DISTINCT [NATDate] FROM [NATTime] WHERE ([NATAddress] = @NATAddress)">
+                               <asp:DropDownList  ID="ddl_NATDate" runat="server" AutoPostBack="True" DataSourceID="NATDATE" DataTextField="NATDate" DataValueField="NATDate" DataFormatString="{0: yyyy/MM/dd}" OnSelectedIndexChanged="ddl_NATDate_SelectedIndexChanged" Width="150px"></asp:DropDownList>
+                                <asp:SqlDataSource ID="NATDATE" runat="server" ConnectionString="Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True" SelectCommand="SELECT DISTINCT [NATDate] FROM [NATTime] WHERE ([NATAddress] = @NATAddress)">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="dll_NATPlace" Name="NATAddress" PropertyName="SelectedValue" Type="String" />
                                     </SelectParameters>
@@ -87,8 +87,8 @@ background-attachment: fixed;
                         <div class="col-md-5 " ><label class="fr">Appointment time:</label></div>
                         <div class="col-md-4">
                         <div class="input-group">
-                            <asp:DropDownList ID="ddl_NATtime" runat="server" AutoPostBack="true" DataSourceID="NATTime" DataTextField="NATTime" DataValueField="NATTime" OnSelectedIndexChanged="ddl_NATtime_SelectedIndexChanged"></asp:DropDownList>
-                            <asp:SqlDataSource ID="NATTime" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [NATTime] FROM [NATTime] WHERE (([NATAddress] = @NATAddress) AND ([NATDate] = @NATDate))">
+                            <asp:DropDownList ID="ddl_NATtime" runat="server" AutoPostBack="true" DataSourceID="NATTime" DataTextField="NATTime" DataValueField="NATTime" OnSelectedIndexChanged="ddl_NATtime_SelectedIndexChanged" Width="150px"></asp:DropDownList>
+                            <asp:SqlDataSource ID="NATTime" runat="server" ConnectionString="Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True" SelectCommand="SELECT [NATTime] FROM [NATTime] WHERE (([NATAddress] = @NATAddress) AND ([NATDate] = @NATDate))">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="dll_NATPlace" Name="NATAddress" PropertyName="SelectedValue" Type="String" />
                                     <asp:ControlParameter ControlID="ddl_NATDate" Name="NATDate" PropertyName="SelectedValue" Type="String" />
@@ -118,4 +118,5 @@ background-attachment: fixed;
     
     
         </div>
+    
 </asp:Content>

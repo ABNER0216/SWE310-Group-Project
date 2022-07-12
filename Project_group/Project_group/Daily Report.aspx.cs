@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
@@ -13,27 +12,35 @@ namespace Project_group
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        
-        String cs = ConfigurationManager.ConnectionStrings["communityConnectionString"].ConnectionString;
+        int id = -1;
+        String cs = ConfigurationManager.ConnectionStrings["communityConnectionString2"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = int.Parse(Session["Userid"].ToString());
-            time.Text = DateTime.Now.ToString();
-            string sql = "select * from UserInfo where UserID='" + id + "'";
-            using (SqlConnection con = new SqlConnection(cs))
+            if (Session["UserName"] == null)
             {
-                SqlCommand myCommand = new SqlCommand(sql, con);
-                con.Open();
-                SqlDataReader myReader;
-                myReader = myCommand.ExecuteReader();
-                myReader.Read();
-                if (!IsPostBack)
+                Response.Redirect("LoginPage.aspx");
+            }
+            else if(Session["Userid"]!= null)
+            {
+                id = int.Parse(Session["Userid"].ToString());
+                string sql = "select * from UserInfo where UserID='" + id + "'";
+                using (SqlConnection con = new SqlConnection(cs))
                 {
-                    tb_UserName.Text = myReader["UserName"].ToString();
-                    tb_ContactNumber.Text = myReader["PhoneNo"].ToString();
-                    tb_UserAddress.Text = myReader["UserAddress"].ToString();
+                    SqlCommand myCommand = new SqlCommand(sql, con);
+                    con.Open();
+                    SqlDataReader myReader;
+                    myReader = myCommand.ExecuteReader();
+                    myReader.Read();
+                    if (!IsPostBack)
+                    {
+                        tb_UserName.Text = myReader["UserName"].ToString();
+                        tb_ContactNumber.Text = myReader["PhoneNo"].ToString();
+                        tb_UserAddress.Text = myReader["UserAddress"].ToString();
+                    }
                 }
             }
+            time.Text = DateTime.Now.ToString();
+            
                 
 
         }
@@ -62,7 +69,7 @@ namespace Project_group
                 }
                 else
                 {
-                    SqlConnection con = new SqlConnection(@"Data Source = 雷义焘\SQLEXPRESS01; Initial Catalog = community; Integrated Security = True");
+                    SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                     con.Open();
                     string insertQuery = "insert into ClockIN(ClockInTime,CIUserName,CIUserPhone,CAddress,Temperature,IsContact,Cough, Cold,Fever)values(@ClockInTime,@CIUserName,@CIUserPhone,@CAddress,@Temperature,@IsContact,@Cough,@Cold,@Fever)";
                     SqlCommand cmd = new SqlCommand(insertQuery, con);
@@ -71,15 +78,14 @@ namespace Project_group
                     cmd.Parameters.AddWithValue("@CIUserPhone", tb_ContactNumber.Text);
                     cmd.Parameters.AddWithValue("@CAddress", tb_CurrentAddress.Text);
                     cmd.Parameters.AddWithValue("@Temperature", tb_Temperature.Text);
-                    //if (tb_Contact_Yes.Checked) { cmd.Parameters.AddWithValue("@IsContact", "Yes"); } else { cmd.Parameters.AddWithValue("@IsContact", "No"); }
-                    //if (tb_Fever_Yes.Checked) { cmd.Parameters.AddWithValue("@Fever", "Yes"); } else { cmd.Parameters.AddWithValue("@Fever", "No"); }
-                    //if (tb_Cough_Yes.Checked) { cmd.Parameters.AddWithValue("@Cough", "Yes"); } else { cmd.Parameters.AddWithValue("@Cough", "No"); }
-                    //if (tb_Cold_Yes.Checked) { cmd.Parameters.AddWithValue("@Cold", "Yes"); } else { cmd.Parameters.AddWithValue("@Cold", "No"); }
                     if (tb_Contact_Yes.Checked) { cmd.Parameters.AddWithValue("@IsContact", 1); } else { cmd.Parameters.AddWithValue("@IsContact",0); }
                     if (tb_Fever_Yes.Checked) { cmd.Parameters.AddWithValue("@Fever", 1); } else { cmd.Parameters.AddWithValue("@Fever", 0); }
                     if (tb_Cough_Yes.Checked) { cmd.Parameters.AddWithValue("@Cough", 1); } else { cmd.Parameters.AddWithValue("@Cough", 0); }
                     if (tb_Cold_Yes.Checked) { cmd.Parameters.AddWithValue("@Cold", 1); } else { cmd.Parameters.AddWithValue("@Cold", 0); }
+                    string updateQuery = "update UserInfo set ClockInStatus =1 where UserID='" + id + "'";
                     cmd.ExecuteNonQuery();
+                    SqlCommand cmd_update = new SqlCommand(updateQuery, con);
+                    cmd_update.ExecuteNonQuery();
                     Response.Write("<script language=javascript>alert('You have submitted the record successfully.');</" + "script>");
                     con.Close();
                 }

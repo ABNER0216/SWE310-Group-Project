@@ -49,7 +49,7 @@ background-attachment: fixed;
             <div class="col-md-5 " ><label class="fr">Name:</label></div>
             <div class="col-md-4">
                 <div class="input-group">
-                    <asp:TextBox ID="tb_name" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="form-control input_custom" ID="tb_name" runat="server"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -60,8 +60,8 @@ background-attachment: fixed;
             <div class="col-md-5 " ><label class="fr">Choose Place: </label></div>
             <div class="col-md-4">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddl_place" runat="server" AutoPostBack="true" DataSourceID="VacPlace" DataTextField="VPlace" DataValueField="VPlace" OnSelectedIndexChanged="ddl_place_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:SqlDataSource ID="VacPlace" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT DISTINCT [VPlace] FROM [VaccineInfo] ORDER BY [VPlace]"></asp:SqlDataSource>
+                    <asp:DropDownList ID="ddl_place" runat="server" AutoPostBack="true" DataSourceID="VacPlace" DataTextField="VPlace" DataValueField="VPlace" OnSelectedIndexChanged="ddl_place_SelectedIndexChanged" Width="150px"></asp:DropDownList>
+                    <asp:SqlDataSource ID="VacPlace" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString2 %>" SelectCommand="SELECT DISTINCT [VPlace] FROM [VaccineInfo] ORDER BY [VPlace]" ></asp:SqlDataSource>
                 </div>
             </div>
         </div>
@@ -72,8 +72,8 @@ background-attachment: fixed;
             <div class="col-md-5 " ><label class="fr">Choose Date:  </label></div>
             <div class="col-md-4">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddl_date" runat="server" AutoPostBack="true" DataSourceID="VacDate" DataTextField="VDate" DataValueField="VDate"></asp:DropDownList>
-                    <asp:SqlDataSource ID="VacDate" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT DISTINCT [VDate] FROM [VaccineInfo] WHERE ([VPlace] = @VPlace)">
+                    <asp:DropDownList ID="ddl_date" runat="server" AutoPostBack="true" DataSourceID="VacDate" DataTextField="VDate" DataValueField="VDate" Width="150px"></asp:DropDownList>
+                    <asp:SqlDataSource ID="VacDate" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString2 %>" SelectCommand="SELECT DISTINCT [VDate] FROM [VaccineInfo] WHERE ([VPlace] = @VPlace)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddl_place" Name="VPlace" PropertyName="SelectedValue" Type="String" />
                         </SelectParameters>
@@ -88,8 +88,9 @@ background-attachment: fixed;
             <div class="col-md-5 " ><label class="fr">Choose Time:  </label></div>
             <div class="col-md-4">
                 <div class="input-group">
-                    <asp:DropDownList ID="ddl_time" runat="server" AutoPostBack="true" DataSourceID="VacTime" DataTextField="VTime" DataValueField="VTime" OnSelectedIndexChanged="ddl_time_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:SqlDataSource ID="VacTime" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [VTime] FROM [VaccineInfo] WHERE (([VPlace] = @VPlace) AND ([VDate] = @VDate)) ORDER BY [VTime]">
+                    <asp:DropDownList ID="ddl_time" runat="server" AutoPostBack="true" DataSourceID="VacTime" DataTextField="VTime" 
+                        DataValueField="VTime" OnSelectedIndexChanged="ddl_time_SelectedIndexChanged" Width="150px"></asp:DropDownList>
+                    <asp:SqlDataSource ID="VacTime" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString2 %>" SelectCommand="SELECT [VTime] FROM [VaccineInfo] WHERE (([VPlace] = @VPlace) AND ([VDate] = @VDate)) ORDER BY [VTime]">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddl_place" Name="VPlace" PropertyName="SelectedValue" Type="String" />
                             <asp:ControlParameter ControlID="ddl_date" Name="VDate" PropertyName="SelectedValue" Type="String" />
@@ -102,15 +103,15 @@ background-attachment: fixed;
                 <br />
             </div>
         <div class="row">
-            <div class="col-md-5 " ><label class="fr">Choose Time:  </label></div>
+            <div class="col-md-5 " ><label class="fr">Choose Inventory:  </label></div>
             <div class="col-md-4">
                 <div class="input-group">
-                    <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="VacInventory" OnPageIndexChanging="DetailsView1_PageIndexChanging" DataKeyNames="VID">
+                    <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataSourceID="VacInventory" OnPageIndexChanging="DetailsView1_PageIndexChanging" DataKeyNames="VID" CellPadding="10">
                         <Fields>
                             <asp:BoundField DataField="Inventory" HeaderText="Inventory" SortExpression="Inventory" />
                         </Fields>
                     </asp:DetailsView>
-                    <asp:SqlDataSource ID="VacInventory" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString %>" SelectCommand="SELECT [VID], [Inventory] FROM [VaccineInfo] WHERE (([VPlace] = @VPlace) AND ([VDate] = @VDate) AND ([VTime] = @VTime))">
+                    <asp:SqlDataSource ID="VacInventory" runat="server" ConnectionString="<%$ ConnectionStrings:communityConnectionString2 %>" SelectCommand="SELECT [VID], [Inventory] FROM [VaccineInfo] WHERE (([VPlace] = @VPlace) AND ([VDate] = @VDate) AND ([VTime] = @VTime))">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="ddl_place" Name="VPlace" PropertyName="SelectedValue" Type="String" />
                             <asp:ControlParameter ControlID="ddl_date" Name="VDate" PropertyName="SelectedValue" Type="String" />

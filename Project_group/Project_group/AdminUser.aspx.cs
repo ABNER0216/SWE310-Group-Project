@@ -11,6 +11,11 @@ namespace Project_group
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+            {
+                //Response.Write("<script>window.alert('Please login！');</script>");
+                Response.Redirect("LoginPage.aspx");
+            }
             if (!Session["UserName"].Equals("Admin"))
             {
                 //Response.Write("<script>window.alert('Please login！');</script>");

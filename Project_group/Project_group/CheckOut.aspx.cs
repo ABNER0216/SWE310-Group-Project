@@ -15,7 +15,6 @@ namespace Project_group
         {
             if(Session["UserName"] == null)
             {
-                Response.Write("<script>window.alert('Please login！');</script>");
                 Response.Redirect("LoginPage.aspx");
             }
         }
@@ -59,7 +58,7 @@ namespace Project_group
             string checkinventory = "UPDATE ShoppingCart set remain=Inventory-ItemNum";
             DBHelper.GetExecute(checkinventory);
             var list = new List<int>();
-            string connection = @"Data Source=雷义焘\SQLEXPRESS01;initial catalog=community; integrated security=true";
+            string connection = @"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             string query = "select remain from ShoppingCart";
@@ -88,6 +87,8 @@ namespace Project_group
                 DBHelper.GetExecute(sql);
                 complete.Visible = true;
                 content.Visible = false;
+                string rmsql = string.Format("delete from ShoppingCart where UserName='{0}'", Session["UserName"].ToString());
+                DBHelper.GetExecute(rmsql);
             }
             else
             {

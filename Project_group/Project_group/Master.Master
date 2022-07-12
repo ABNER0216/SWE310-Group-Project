@@ -29,7 +29,7 @@
     <form id="form1" runat="server">
         
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light border-bottom content">
+            <nav class="navbar nav-tabs navbar-expand-lg navbar-light border-bottom content">
                 <a class="navbar-brand" href="#">
                     <img src="imgs/healthy.png" width="30" height="30"/>
                     Health Community
@@ -43,25 +43,31 @@
                             <a class="nav-link" href="StartPage.aspx">Home</a>
                         </li>
                         <li class="nav-item  active">
-                            <a class="nav-link" href="Daily Report.aspx">Daily Report</a>
+                            <a class="nav-link" href="Daily Report.aspx" onclick="link3_click">Report</a>
                         </li>
-                            <li class="nav-item  active">
-                            <a class="nav-link" href="#">Home</a>
+                        <li class="nav-item  active">
+                            <a class="nav-link" href="NAT Appointment.aspx" onclick="link4_click">NAT</a>
+                        </li>
+                        <li class="nav-item  active">
+                            <a class="nav-link" href="Vaccine Appointment.aspx" onclick="link2_click">Vaccine</a>
+                        </li>
+                        <li class="nav-item  active">
+                            <a class="nav-link" href="ShoppingCart.aspx" onclick="link6_click">My Cart</a>
                         </li>
                     </ul>
                   
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item  active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server">User Login</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" PostBackUrl="~/UserRegistration.aspx">Register</asp:LinkButton>
                         </li>
                         <li class="nav-item  active">
-                             <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server">Sign Out</asp:LinkButton>
+                             <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" PostBackUrl="~/LoginPage.aspx">User Login</asp:LinkButton>
                         </li>
                         <li class="nav-item  active">
-                             <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server">User Logout</asp:LinkButton>
+                             <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" PostBackUrl="~/StartPage.aspx" OnClick="LinkButton3_Click">Sign Out</asp:LinkButton>
                         </li>
                         <li class="nav-item  active">
-                             <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server">Hello user</asp:LinkButton>
+                            <asp:Label ID="Label1" runat="server"></asp:Label>
                         </li>
                     </ul>
                 </div>

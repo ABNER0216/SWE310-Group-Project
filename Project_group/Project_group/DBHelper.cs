@@ -9,7 +9,7 @@ namespace Project_group
 {
     public class DBHelper
     {
-        static string constr = @"Data Source=雷义焘\SQLEXPRESS01;initial catalog=community; integrated security=true";
+        static string constr = @"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True";
         public static DataSet getDataSet(string sql)
         {
             SqlConnection con = new SqlConnection(constr);

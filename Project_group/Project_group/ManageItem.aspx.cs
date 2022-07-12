@@ -11,13 +11,28 @@ namespace Project_group
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["UserName"] == null)
+            {
+                //Response.Write("<script>window.alert('Please login！');</script>");
+                Response.Redirect("LoginPage.aspx");
+            }
+            if (!Session["UserName"].Equals("Admin"))
+            {
+                //Response.Write("<script>window.alert('You are not admin！');</script>");
+                Response.Redirect("LoginPage.aspx");
+            }
         }
         protected void CreateNewItem(object sender, EventArgs e)
         {
-            string sqlcommand = string.Format("insert into ItemList(ItemName, Inventory, Price) values('{0}','{1}','{2}')", itemname.Value, itemnumber.Value, itemprice.Value);
-            DBHelper.GetExecute(sqlcommand);
-            //Response.Redirect("CreateNewItem.aspx");
+            if (FileUpload1.HasFiles)
+            {
+                string str = FileUpload1.FileName;
+                FileUpload1.PostedFile.SaveAs(Server.MapPath("/imgs/" + str));
+                string Image = "/imgs/" + str.ToString();
+                string sqlcommand = string.Format("insert into ItemList(ItemName, Inventory, Price, Image) values('{0}','{1}','{2}','{3}')", itemname.Value, itemnumber.Value, itemprice.Value, Image);
+                DBHelper.GetExecute(sqlcommand);
+                Response.Redirect("ManageItem.aspx");
+            }
         }
         protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {

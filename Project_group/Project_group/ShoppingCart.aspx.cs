@@ -22,12 +22,12 @@ namespace Project_group
                 if (!string.IsNullOrEmpty(Request.QueryString["ItemId"]))
                 {
                     string sqlUpdate = string.Format("update ShoppingCart set ItemNum=ItemNum+1 where UserName='{0}' and ItemId='{1}'", Session["UserName"], Request.QueryString["ItemId"]);
-                    //string deleteinventory = string.Format("update ItemList set Inventory=Inventory-1 where ItemId='{0}'", Request.QueryString["ItemId"]); 没用
+                 
                     int numUpdate = DBHelper.GetExecute(sqlUpdate);
                     //DBHelper.GetExecute(deleteinventory);
                     if (numUpdate <= 0)
                     {
-                        string sqlInsert = string.Format("insert into ShoppingCart values (1,'{0}','{1}','{2}','{3}','{4}','{5}')", Request.QueryString["ItemId"], Session["UserName"], Request.QueryString["Price"], Request.QueryString["ItemName"], Request.QueryString["Inventory"], Request.QueryString["Inventory"]);
+                        string sqlInsert = string.Format("insert into ShoppingCart values (1,'{0}','{1}','{2}','{3}','{4}','{5}')", Request.QueryString["ItemId"], Session["UserName"], Request.QueryString["Price"], Request.QueryString["ItemName"], Request.QueryString["Inventory"], Request.QueryString["Inventory"]); 
                         DBHelper.GetExecute(sqlInsert);
                     }
                 }

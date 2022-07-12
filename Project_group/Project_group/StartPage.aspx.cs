@@ -13,5 +13,68 @@ namespace Project_group
         {
 
         }
+        protected void button1_click(object sender, EventArgs e)
+        {
+            if (Session["UserName"] == null)
+            {
+                Response.Write("<script>window.alert('Please login！');</script>");
+            }
+            else
+            {
+                Response.Redirect("ItemList.aspx");
+            }
+            
+        }
+
+        protected void button2_click(object sender, EventArgs e)
+        {
+            if (Session["UserName"] == null)
+            {
+                Response.Write("<script>window.alert('Please login！');</script>");
+            }
+            else
+            {
+                Response.Redirect("Vaccine Appointment.aspx");
+            }
+            
+        }
+
+        protected void button3_click(object sender, EventArgs e)
+        {
+            if (Session["UserName"] == null)
+            {
+                Response.Write("<script>window.alert('Please login！');</script>");
+            }
+            else
+            {
+                Response.Redirect("Daily Report.aspx");
+            }
+
+        }
+
+        protected void button4_click(object sender, EventArgs e)
+        {
+            if (Session["UserName"] == null)
+            {
+                Response.Write("<script>window.alert('Please login！');</script>");
+            }
+            else
+            {
+                Response.Redirect("NAT Appointment.aspx");
+            }
+           
+        }
+        protected void button5_click(object sender, EventArgs e)
+        {
+            if (Session["UserName"] == null)
+            {
+                Response.Write("<script>window.alert('Please login！');</script>");
+            }
+            else
+            {
+                Response.Redirect("ViewInformation.aspx");
+            }
+            
+        }
     }
 }

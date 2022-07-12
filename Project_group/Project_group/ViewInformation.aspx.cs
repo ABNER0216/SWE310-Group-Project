@@ -11,7 +11,15 @@ namespace Project_group
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["UserName"].ToString();
+            if (Session["UserName"] == null)
+            {
+                Response.Write("<script>window.alert('Please login！');</script>");
+            }
+            else
+            {
+                Label1.Text = Session["UserName"].ToString();
+            }
+                
         }
 
         protected void Button1_Click(object sender, EventArgs e)

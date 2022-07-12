@@ -18,14 +18,13 @@ namespace Project_group
             if (!IsPostBack)
             {
                 String UserName = Session["UserName"].ToString();
-                SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-M3M70HCP\SQLEXPRESS;Initial Catalog=community;Integrated Security=True");
+                SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                 con.Open();
                 SqlCommand Command = con.CreateCommand();
                 Command.CommandText = "SELECT * FROM  UserInfo where UserName='" + UserName + "'";
                 SqlDataReader read = Command.ExecuteReader();
                 read.Read();
                 TextBox1.Text = Convert.ToString(read["UserName"]);
-                TextBox2.Text = Convert.ToString(read["Password"]);
                 TextBox3.Text = Convert.ToString(read["FullName"]);
                 TextBox4.Text = Convert.ToString(read["Age"]);
                 TextBox5.Text = Convert.ToString(read["PhoneNo"]);
@@ -52,15 +51,13 @@ namespace Project_group
                 {
                     TextBox2.Text = TextBox7.Text;
                 }
-                else
-                {
                     SqlConnection con = new SqlConnection(@"Data Source=雷义焘\SQLEXPRESS01;Initial Catalog=community;Integrated Security=True");
                     con.Open();
                     string updateQuery = "update UserInfo set Password='" + TextBox2.Text + "',FullName='" + TextBox3.Text + "',Age='" + TextBox4.Text + "',PhoneNo='" + TextBox5.Text + "',UserAddress='" + TextBox6.Text + "',Vaccine='" + DropDownList1.SelectedValue + "',VaccineTime='" + TextBox8.Text + "' where UserName='" + TextBox1.Text + "'";
                     SqlCommand cmd = new SqlCommand(updateQuery, con);
                     cmd.ExecuteNonQuery();
                     con.Close();
-                }
+                
             }
             Response.Write("<script>window.alert('Successfully');</script>");
         }

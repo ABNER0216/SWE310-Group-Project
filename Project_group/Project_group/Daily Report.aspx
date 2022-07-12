@@ -79,7 +79,8 @@ background-attachment: fixed;
                         <div class="col-md-5 " ><label class="fr">Temperature:</label></div>
                         <div class="col-md-4">
                         <div class="input-group">
-                            <asp:TextBox CssClass="form-control input_custom" ID="tb_Temperature" runat="server" placeholder="Input your temperature"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control input_custom" ID="tb_Temperature" runat="server" placeholder="Input your temperature">
+                            </asp:TextBox>
                         </div>
                         </div>
                     </div>
@@ -137,7 +138,7 @@ background-attachment: fixed;
                     <div class="col-md-5" ><label class="fr">Cold:</label></div>
                     <div class="col-md-4">
                         <div class="input-group"> 
-                                <asp:RadioButton CssClass="form-control input_custom" ID="tb_Cold_Yes" runat="server" Text="Yes" GroupName="Cold"></asp:RadioButton>
+                            <asp:RadioButton CssClass="form-control input_custom" ID="tb_Cold_Yes" runat="server" Text="Yes" GroupName="Cold"></asp:RadioButton>
                             <asp:RadioButton CssClass="form-control input_custom" ID="tb_Cold_No" runat="server" Text="No" GroupName="Cold"></asp:RadioButton>
                         </div>
                         </div>
@@ -147,7 +148,7 @@ background-attachment: fixed;
                     </div>
                     <center>
                         <div class="btn_custom row ">
-	                    <asp:Button ID="btn_submit_DailyReport" class="btn btn_custom" runat="server" Text="Submit" OnClick="submit_DailyReport" />
+	                        <asp:Button ID="btn_submit_DailyReport" class="btn btn_custom" runat="server" Text="Submit" OnClick="submit_DailyReport" />
                         </div>
                     </center>
                </div>
